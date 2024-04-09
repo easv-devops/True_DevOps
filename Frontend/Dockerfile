@@ -1,9 +1,9 @@
 # Stage 1: Build the Angular app
 FROM node:14 
 
-# Copy package.json and package-lock.json to the working directory
-COPY ./home/azureuser/True_Devops/Frontend/package.json ./
-COPY ./home/azureuser/True_Devops/Frontend/package-lock.json ./
+COPY Frontend/package.json ./
+COPY Frontend/package-lock.json ./
+
 
 # Install dependencies
 RUN npm install
@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 
 # Build the Angular app for production
-RUN npm run build
+RUN npm run build 
 
 # Stage 2: Serve the Angular app using Nginx
 FROM nginx:alpine
