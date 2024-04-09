@@ -1,8 +1,6 @@
 # Stage 1: Build the Angular app
 FROM node:14 AS builder
 
-WORKDIR /Frontend
-
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
