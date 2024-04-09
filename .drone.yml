@@ -67,7 +67,7 @@ steps:
     image: flyway/flyway
     commands:
       - flyway migrate
-      - -url=jdbc:mariadb://4.231.252.47:3306/currencies
+      - -url=jdbc:mariadb://4.231.252.47:8080/currencies
       - -user=myuser
       - -password=mypassword
       - -locations=filesystem:./db/sql
