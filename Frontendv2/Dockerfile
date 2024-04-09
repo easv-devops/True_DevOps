@@ -5,7 +5,7 @@ COPY Frontendv2/package.json ./
 COPY Frontendv2/package-lock.json ./
 
 # Copy the rest of the application code
-COPY Frontendv2
+COPY Frontendv2 .
 
 # Install dependencies
 RUN npm install
