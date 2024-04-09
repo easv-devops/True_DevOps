@@ -12,8 +12,11 @@ steps:
       - dotnet sonarscanner begin 
           /k:"easv-devops_True_DevOps_AY7CDRyyEVvRW2O60Efz" 
           /d:sonar.host.url="http://sonar.setgo.dk:9000" 
-          /d:sonar.token="$SONARSECRET" 
+          /d:sonar.token="$SONARSECRET"
+          /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
+          /d:sonar.qualitygate.wait=true
       - dotnet build Api/Api.csproj --no-incremental
+      - dotnet-coverage collect "dotnet test Tests/Tests.csproj" -f xml -o "coverage.xml"
       - dotnet sonarscanner end /d:sonar.token="$SONARSECRET"
 
 ---
