@@ -37,7 +37,7 @@ steps:
       password:
         from_secret: DockerPassword
       dockerfile: Api/Dockerfile
-      repo: midr/True_Currency_Api
+      repo: midr/true-currency-api
       tags:
         - staging
 
@@ -49,7 +49,7 @@ steps:
       password:
         from_secret: DockerPassword
       dockerfile: Frontend/Dockerfile
-      repo: midr/True_Currency_Frontend
+      repo: midr/true-currency-frontend
       tags:
         - staging
 
