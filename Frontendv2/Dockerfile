@@ -1,5 +1,5 @@
 # Stage 1: Build the Angular app
-FROM node:14 
+FROM node:20
 
 COPY Frontendv2/package.json ./
 COPY Frontendv2/package-lock.json ./
@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 
 # Build the Angular app for production
-RUN npm run build 
+RUN npm run build
 
 # Stage 2: Serve the Angular app using Nginx
 FROM nginx:alpine
