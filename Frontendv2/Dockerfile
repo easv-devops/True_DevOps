@@ -6,5 +6,6 @@ COPY Frontendv2 .
 RUN npm run build
 
 FROM nginx:alpine
-COPY --from=angular /ng-app/www/browser /usr/share/nginx/html
+COPY --from=angular /ng-app/dist/www /usr/share/nginx/html
+
 EXPOSE 80
