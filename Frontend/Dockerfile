@@ -2,8 +2,8 @@
 FROM node:14 AS builder
 
 # Copy package.json and package-lock.json to the working directory
-COPY ./package.json ./
-COPY ./package-lock.json ./
+COPY ./home/azureuser/True_Devops/Frontend/package.json ./
+COPY ./home/azureuser/True_Devops/Frontend/package-lock.json ./
 
 # Install dependencies
 RUN npm install
