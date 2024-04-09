@@ -1,8 +1,10 @@
 # Stage 1: Build the Angular app
-FROM node:14 AS builder
+FROM node:14 
 
-# Set the working directory
-WORKDIR /app
+COPY Frontend/package.json ./
+COPY Frontend/package-lock.json ./
+
+
 # Install dependencies
 RUN npm install
 

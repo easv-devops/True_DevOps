@@ -41,17 +41,6 @@ steps:
       tags:
         - staging
           
-  - name: build
-    image: node:14
-    commands:
-      - cd Frontend  # Change to the Frontend directory
-      - npm install
-      - npm run build -- --prod
-    when:
-      event:
-        - push
-        - tag
-  
   - name: publish web
     image: plugins/docker
     settings:
