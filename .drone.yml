@@ -13,7 +13,7 @@ steps:
           /k:"easv-devops_True_DevOps_AY7CDRyyEVvRW2O60Efz" 
           /d:sonar.host.url="http://sonar.setgo.dk:9000" 
           /d:sonar.token="$SONARSECRET" 
-      - dotnet build Api/api.csproj --no-incremental
+      - dotnet build Api/Api.csproj --no-incremental
       - dotnet sonarscanner end /d:sonar.token="$SONARSECRET"
 
 ---
