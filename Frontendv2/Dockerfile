@@ -13,7 +13,7 @@ RUN npm install
 
 
 # Build the Angular app for production
-RUN $(npm bin)/ng build
+RUN ng build
 
 # Stage 2: Serve the Angular app using Nginx
 FROM nginx:alpine
