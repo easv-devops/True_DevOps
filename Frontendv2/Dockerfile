@@ -1,8 +1,8 @@
 FROM node:20-alpine as angular
 WORKDIR /ng-app
-COPY Frontendv2/package*.json ./
+COPY ./package*.json ./
 RUN npm ci
-COPY . .
+COPY ./ .
 RUN npm run build
 
 FROM nginx:alpine
