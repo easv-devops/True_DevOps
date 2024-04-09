@@ -40,7 +40,17 @@ steps:
       repo: midr/true-currency-api
       tags:
         - staging
-
+          
+  - name: build
+    image: node:14
+    commands:
+        - npm install
+        - npm run build -- --prod
+    when:
+        event:
+          - push
+          - tag
+  
   - name: publish web
     image: plugins/docker
     settings:
