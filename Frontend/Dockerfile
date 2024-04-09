@@ -1,5 +1,5 @@
 FROM node:13-alpine as build
-WORKDIR /Frontend
+WORKDIR ./
 COPY package*.json /app/
 RUN npm install -g ionic
 RUN npm install
