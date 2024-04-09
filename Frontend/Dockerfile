@@ -1,8 +1,8 @@
 # Stage 1: Build the Angular app
 FROM node:14 
 
-COPY Frontend/package.json ./
-COPY Frontend/package-lock.json ./
+COPY Frontendv2/package.json ./
+COPY Frontendv2/package-lock.json ./
 
 
 # Install dependencies
