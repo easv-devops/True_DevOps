@@ -14,19 +14,19 @@ RUN npm install -g @angular/cli
 RUN npm install
 
 # Build the Angular app for production
-RUN ng build 
+RUN ng build
 
-# Stage 2: Serve the Angular app using Nginx
-FROM nginx:alpine
+# Stage 2: Serve the Angular app using http-server
+FROM node:alpine
 
-# Copy the built Angular app from the previous stage to the nginx public directory
-COPY --from=builder /app/dist /usr/share/nginx/html
+# Install http-server globally
+RUN npm install -g http-server
 
-# Copy the nginx configuration file to enable Angular HTML5 mode routing
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Set the working directory inside the container
+WORKDIR /app
 
-# Expose port 80
-EXPOSE 80
+# Copy the built Angular app from the previous stage to the working directory
+COPY --from=builder /app/dist /app
 
-# Command to start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Expose port 8080 (or any other port you prefer)
+EXPOSE 8080
