@@ -2,7 +2,7 @@ FROM node:20.12.1
 
 WORKDIR /app
 
-COPY Frontend/package*.json ./
+COPY Frontendv2/package*.json ./
 
 RUN npm install
 
