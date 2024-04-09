@@ -1,34 +1,19 @@
-# Stage 1: Build the Angular app
-FROM node:20 as builder
+FROM node:18.13.0 as build
 
-# Set the working directory inside the container
 WORKDIR /app
 
+COPY package*.json ./
 
-
-# Install Angular CLI globally
-RUN npm install -g @angular/cli
-
-# Install dependencies
 RUN npm install
 
-# Copy the Angular project files to the working directory
-COPY Frontendv2 .
+RUN npm install -g @angular/cli
 
-# Build the Angular app for production
-RUN ng build
+COPY . .
 
-# Stage 2: Serve the Angular app using http-server
-FROM node:alpine
+RUN ng build --configuration=production
 
-# Install http-server globally
-RUN npm install -g http-server
+FROM nginx:latest
 
-# Set the working directory inside the container
-WORKDIR /app
+COPY --from=build app/dist/aftas-angular /usr/share/nginx/html
 
-# Copy the built Angular app from the previous stage to the working directory
-COPY --from=builder /app/www /app
-
-# Expose port 8080 (or any other port you prefer)
-EXPOSE 8080
+EXPOSE 80
