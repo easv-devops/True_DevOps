@@ -44,12 +44,13 @@ steps:
   - name: build
     image: node:14
     commands:
-        - npm install
-        - npm run build -- --prod
+      - cd Frontend  # Change to the Frontend directory
+      - npm install
+      - npm run build -- --prod
     when:
-        event:
-          - push
-          - tag
+      event:
+        - push
+        - tag
   
   - name: publish web
     image: plugins/docker
