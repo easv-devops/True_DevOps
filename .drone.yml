@@ -36,7 +36,6 @@ steps:
         from_secret: DockerUsername
       password:
         from_secret: DockerPassword
-      context: True_DevOps
       dockerfile: Api/Dockerfile
       repo: midr/True_Currency_Api
       tags:
@@ -49,7 +48,6 @@ steps:
         from_secret: DockerUsername
       password:
         from_secret: DockerPassword
-      context: True_DevOps
       dockerfile: Frontend/Dockerfile
       repo: midr/True_Currency_Frontend
       tags:
