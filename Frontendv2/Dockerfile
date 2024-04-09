@@ -26,7 +26,7 @@ RUN npm install -g http-server
 WORKDIR /app
 
 # Copy the built Angular app from the previous stage to the working directory
-COPY --from=builder /app/dist /app
+COPY --from=builder /app/www /app
 
 # Expose port 8080 (or any other port you prefer)
 EXPOSE 8080
