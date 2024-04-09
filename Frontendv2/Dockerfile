@@ -1,19 +1,11 @@
-FROM node:20.12.1  as build
-
-WORKDIR /app
-
-COPY Frontendv2/package*.json ./
-
-RUN npm install
-
-RUN npm install -g @angular/cli
-
+FROM node:20-alpine as angular
+WORKDIR /ng-app
+COPY Frontendv2/package*.json .
+RUN npm ci
 COPY Frontendv2 .
+RUN npm run build
 
-RUN ng build
-
-FROM nginx:latest
-
-COPY --from=build app/dist/aftas-angular /usr/share/nginx/html
-
+FROM nginx:alpine
+ARG name
+COPY --from=angular /ng-app/dist/$name/browser /usr/share/nginx/html
 EXPOSE 80
