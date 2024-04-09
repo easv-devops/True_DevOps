@@ -2,7 +2,9 @@ FROM node:18.13.0 as build
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY Frontendv2/package.json ./
+COPY Frontendv2/package-lock.json ./
+
 
 RUN npm install
 
