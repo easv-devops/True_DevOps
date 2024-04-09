@@ -1,25 +1,26 @@
 # Stage 1: Build the Angular app
-FROM node:20
+FROM node:20 as builder
 
-COPY Frontendv2/package.json ./
-COPY Frontendv2/package-lock.json ./
+# Set the working directory inside the container
+WORKDIR /app
 
-# Copy the rest of the application code
+# Copy the Angular project files to the working directory
 COPY Frontendv2 .
+
+# Install Angular CLI globally
+RUN npm install -g @angular/cli
 
 # Install dependencies
 RUN npm install
 
-
-
 # Build the Angular app for production
-RUN ng build
+RUN ng build --prod
 
 # Stage 2: Serve the Angular app using Nginx
 FROM nginx:alpine
 
 # Copy the built Angular app from the previous stage to the nginx public directory
-COPY --from=builder /app/www /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Copy the nginx configuration file to enable Angular HTML5 mode routing
 COPY nginx.conf /etc/nginx/conf.d/default.conf
