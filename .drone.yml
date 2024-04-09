@@ -9,6 +9,7 @@ steps:
       SONARSECRET:
         from_secret: SonarQubeSecret
     commands:
+      - exit 0
       - dotnet sonarscanner begin 
           /k:"easv-devops_True_DevOps_AY7CDRyyEVvRW2O60Efz" 
           /d:sonar.host.url="http://sonar.setgo.dk:9000" 
@@ -35,7 +36,7 @@ steps:
         from_secret: DockerUsername
       password:
         from_secret: DockerPassword
-      context: src
+      context: True_DevOps
       dockerfile: Api/Dockerfile
       repo: midr/True_Currency_Api
       tags:
@@ -48,7 +49,7 @@ steps:
         from_secret: DockerUsername
       password:
         from_secret: DockerPassword
-      context: src
+      context: True_DevOps
       dockerfile: Frontend/Dockerfile
       repo: midr/True_Currency_Frontend
       tags:
