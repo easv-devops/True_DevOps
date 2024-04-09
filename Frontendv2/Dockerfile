@@ -4,14 +4,16 @@ FROM node:20 as builder
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the Angular project files to the working directory
-COPY Frontendv2 .
+
 
 # Install Angular CLI globally
 RUN npm install -g @angular/cli
 
 # Install dependencies
 RUN npm install
+
+# Copy the Angular project files to the working directory
+COPY Frontendv2 .
 
 # Build the Angular app for production
 RUN ng build
