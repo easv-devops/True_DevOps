@@ -1,0 +1,4 @@
+CREATE TABLE Currency (
+    iso VARCHAR(5) PRIMARY KEY,
+    index DECIMAL NOT NULL
+);
