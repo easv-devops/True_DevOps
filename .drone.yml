@@ -77,6 +77,6 @@ steps:
   - name: performance tests
     image: grafana/k6
     commands:
-      - k6 run test/performance/spike.js
+      - k6 run Tests/performance/spike.js
     depends_on:
       - update database
