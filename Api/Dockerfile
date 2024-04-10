@@ -17,6 +17,8 @@ FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
+RUN ls -l /app/publish
+
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
