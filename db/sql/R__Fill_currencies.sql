@@ -1,5 +1,5 @@
 DELETE FROM Currency;
-INSERT INTO Currency (iso, index)
+INSERT INTO Currency (iso, value)
 VALUES
     ('USD', 1),
     ('EUR', 0.93),
