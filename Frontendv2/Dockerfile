@@ -9,5 +9,3 @@ FROM nginx:alpine
 COPY --from=angular /ng-app/www /usr/share/nginx/html
 
 EXPOSE 8080
-
-CMD ["nginx", "-g", "daemon off;"]
