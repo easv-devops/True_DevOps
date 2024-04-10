@@ -3,8 +3,6 @@ services:
     image: midr/true-currency-frontend:staging
     ports:
       - "5001:8080"
-    depends_on:
-      - currency-api
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
   
