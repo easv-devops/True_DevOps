@@ -2,7 +2,7 @@ services:
   currency-frontend:
     image: midr/true-currency-frontend:staging
     ports:
-      - "5001:8080"
+      - "5001:80"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
   
