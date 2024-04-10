@@ -31,5 +31,5 @@ export let options = {
 };
 
 export default function () {
-    http.get("http://84.247.167.129:5002/weatherforecast");
+    http.get("http://4.231.252.47:5002/GetWeatherForecast");
 }
